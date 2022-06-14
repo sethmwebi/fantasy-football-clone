@@ -1,9 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
+import Navigation from "./navigation";
+import TabOneScreen from "./screens/TabOneScreen";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -14,8 +16,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <StatusBar />
+          <TabOneScreen />
+        </GestureHandlerRootView>
       </SafeAreaProvider>
     );
   }
