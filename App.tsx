@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { RecoilRoot } from "recoil";
 
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
@@ -18,7 +19,9 @@ export default function App() {
       <SafeAreaProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <StatusBar />
-          <TabOneScreen />
+          <RecoilRoot>
+            <TabOneScreen />
+          </RecoilRoot>
         </GestureHandlerRootView>
       </SafeAreaProvider>
     );

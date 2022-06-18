@@ -5,10 +5,8 @@ import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 
 import Field from "../components/Field";
 import TeamStats from "../components/TeamStats";
-import PlayerListItem from "../components/PlayerListItem";
 import Filters from "../components/Filters"
-
-import { players } from "../assets/data/players";
+import PlayersList from "../components/PlayersList"
 
 export default function TabOneScreen() {
   const playersBottomSheet = useRef<BottomSheet>(null);
@@ -38,10 +36,7 @@ export default function TabOneScreen() {
         >
           <Text>Filters</Text>
         </Pressable>
-        <BottomSheetFlatList
-          data={players}
-          renderItem={({ item }) => <PlayerListItem player={item} />}
-        />
+        <PlayersList />
       </BottomSheet>
       <BottomSheet
         ref={filtersBottomSheet}
